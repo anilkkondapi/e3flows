@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2500" height="2695" viewBox="0 0 2500 2695">
+
+    <defs>
+      <style>
+        .sans { font-family: Arial, Helvetica, sans-serif; }
+        .mono { font-family: Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+      </style>
+    </defs>
+    
+<rect width="2500" height="2695" fill="#080b0f"/>
+<text x="56" y="50" fill="#76b900" font-size="19" font-weight="700" letter-spacing="3.2" class="sans">GENERATED PROTOCOL EFS</text>
+<text x="56" y="88" fill="#eef2f5" font-size="32" font-weight="700" class="sans">AXI transaction model</text>
+<rect x="50" y="125" width="2400" height="214" rx="10" fill="#10161d" stroke="#2a343e" stroke-opacity="1"/>
+<rect x="50" y="125" width="10" height="214" fill="#76b900"/>
+<text x="84" y="160" fill="#76b900" font-size="14" font-weight="700" class="mono">01</text>
+<text x="138" y="161" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">AW TRANSACTION</text>
+<text x="138" y="197" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="205" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="226" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: awvalid = 1)  &amp;  (Subordinate -&gt; Manager: awready = 1)</text>
+<text x="138" y="264" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="273" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="296" fill="#edf2f5" font-size="15" class="mono">Manager -&gt; Subordinate: awaddr = [val]</text>
+<rect x="50" y="361" width="2400" height="214" rx="10" fill="#10161d" stroke="#2a343e" stroke-opacity="1"/>
+<rect x="50" y="361" width="10" height="214" fill="#76b900"/>
+<text x="84" y="396" fill="#76b900" font-size="14" font-weight="700" class="mono">02</text>
+<text x="138" y="397" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">W TRANSACTION</text>
+<text x="138" y="433" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="441" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="462" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: wvalid = 1)  &amp;  (Subordinate -&gt; Manager: wready = 1)</text>
+<text x="138" y="500" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="509" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="532" fill="#edf2f5" font-size="15" class="mono">Manager -&gt; Subordinate: wdata = [val]</text>
+<rect x="50" y="597" width="2400" height="214" rx="10" fill="#10161d" stroke="#2a343e" stroke-opacity="1"/>
+<rect x="50" y="597" width="10" height="214" fill="#76b900"/>
+<text x="84" y="632" fill="#76b900" font-size="14" font-weight="700" class="mono">03</text>
+<text x="138" y="633" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">B TRANSACTION</text>
+<text x="138" y="669" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="677" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="698" fill="#cbd4db" font-size="15" class="mono">(Subordinate -&gt; Manager: bvalid = 1)  &amp;  (Manager -&gt; Subordinate: bready = 1)</text>
+<text x="138" y="736" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="745" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="768" fill="#edf2f5" font-size="15" class="mono">Subordinate -&gt; Manager: bresp = [val]</text>
+<rect x="50" y="833" width="2400" height="214" rx="10" fill="#10161d" stroke="#2a343e" stroke-opacity="1"/>
+<rect x="50" y="833" width="10" height="214" fill="#76b900"/>
+<text x="84" y="868" fill="#76b900" font-size="14" font-weight="700" class="mono">04</text>
+<text x="138" y="869" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">AR TRANSACTION</text>
+<text x="138" y="905" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="913" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="934" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: arvalid = 1)  &amp;  (Subordinate -&gt; Manager: arready = 1)</text>
+<text x="138" y="972" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="981" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="1004" fill="#edf2f5" font-size="15" class="mono">Manager -&gt; Subordinate: araddr = [val]</text>
+<rect x="50" y="1069" width="2400" height="214" rx="10" fill="#10161d" stroke="#2a343e" stroke-opacity="1"/>
+<rect x="50" y="1069" width="10" height="214" fill="#76b900"/>
+<text x="84" y="1104" fill="#76b900" font-size="14" font-weight="700" class="mono">05</text>
+<text x="138" y="1105" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">R TRANSACTION</text>
+<text x="138" y="1141" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="1149" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="1170" fill="#cbd4db" font-size="15" class="mono">(Subordinate -&gt; Manager: rvalid = 1)  &amp;  (Manager -&gt; Subordinate: rready = 1)</text>
+<text x="138" y="1208" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="1217" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="1240" fill="#edf2f5" font-size="15" class="mono">Manager -&gt; Subordinate: rdata = [val]</text>
+<rect x="50" y="1305" width="2400" height="214" rx="10" fill="#10161d" stroke="#2a343e" stroke-opacity="1"/>
+<rect x="50" y="1305" width="10" height="214" fill="#76b900"/>
+<text x="84" y="1340" fill="#76b900" font-size="14" font-weight="700" class="mono">06</text>
+<text x="138" y="1341" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">AC TRANSACTION</text>
+<text x="138" y="1377" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="1385" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="1406" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: acvalid = 1)  &amp;  (Subordinate -&gt; Manager: acready = 1)</text>
+<text x="138" y="1444" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="1453" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="1476" fill="#edf2f5" font-size="15" class="mono">Manager -&gt; Subordinate: acaddr = [val]</text>
+<rect x="50" y="1541" width="2400" height="214" rx="10" fill="#10161d" stroke="#2a343e" stroke-opacity="1"/>
+<rect x="50" y="1541" width="10" height="214" fill="#76b900"/>
+<text x="84" y="1576" fill="#76b900" font-size="14" font-weight="700" class="mono">07</text>
+<text x="138" y="1577" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">CR TRANSACTION</text>
+<text x="138" y="1613" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="1621" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="1642" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: crvalid = 1)  &amp;  (Subordinate -&gt; Manager: crready = 1)</text>
+<text x="138" y="1680" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="1689" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="1712" fill="#edf2f5" font-size="15" class="mono">Subordinate -&gt; Manager: crresp = [val]</text>
+<rect x="50" y="1777" width="2400" height="239" rx="10" fill="#111a12" stroke="#76b900" stroke-opacity="0.76"/>
+<rect x="50" y="1777" width="10" height="239" fill="#76b900"/>
+<text x="84" y="1812" fill="#76b900" font-size="14" font-weight="700" class="mono">08</text>
+<text x="138" y="1813" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">ATOMIC STORE TRANSACTION</text>
+<text x="138" y="1849" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="1857" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="1878" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: awvalid = 1)  &amp;  (Subordinate -&gt; Manager: awready = 1)  &amp;  (Manager -&gt; Subordinate: wvalid = 1)</text>
+<rect x="128" y="1890" width="2280" height="30" rx="4" fill="#0d1217" stroke="#26313a"/>
+<text x="150" y="1911" fill="#cbd4db" font-size="15" class="mono">(Subordinate -&gt; Manager: wready = 1)  &amp;  (Subordinate -&gt; Manager: bvalid = 1)  &amp;  (Manager -&gt; Subordinate: bready = 1)</text>
+<text x="138" y="1949" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="1958" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="1981" fill="#edf2f5" font-size="15" class="mono">Manager -&gt; Subordinate: atomicstore = [val]</text>
+<rect x="50" y="2038" width="2400" height="264" rx="10" fill="#111a12" stroke="#76b900" stroke-opacity="0.76"/>
+<rect x="50" y="2038" width="10" height="264" fill="#76b900"/>
+<text x="84" y="2073" fill="#76b900" font-size="14" font-weight="700" class="mono">09</text>
+<text x="138" y="2074" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">ATOMIC LOAD TRANSACTION</text>
+<text x="138" y="2110" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="2118" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="2139" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: awvalid = 1)  &amp;  (Subordinate -&gt; Manager: awready = 1)  &amp;  (Manager -&gt; Subordinate: wvalid = 1)</text>
+<rect x="128" y="2151" width="2280" height="30" rx="4" fill="#0d1217" stroke="#26313a"/>
+<text x="150" y="2172" fill="#cbd4db" font-size="15" class="mono">(Subordinate -&gt; Manager: wready = 1)  &amp;  (Subordinate -&gt; Manager: rvalid = 1)  &amp;  (Manager -&gt; Subordinate: rready = 1)  &amp;  (Subordinate -&gt; Manager: bvalid = 1)</text>
+<rect x="128" y="2184" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="2205" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: bready = 1)</text>
+<text x="138" y="2243" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="2252" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="2275" fill="#edf2f5" font-size="15" class="mono">Manager -&gt; Subordinate: atomicload = [val]</text>
+<rect x="50" y="2324" width="2400" height="289" rx="10" fill="#111a12" stroke="#76b900" stroke-opacity="0.76"/>
+<rect x="50" y="2324" width="10" height="289" fill="#76b900"/>
+<text x="84" y="2359" fill="#76b900" font-size="14" font-weight="700" class="mono">10</text>
+<text x="138" y="2360" fill="#f3f6f8" font-size="21" font-weight="700" class="sans">ATOMIC COMPARE SWAP TRANSACTION</text>
+<text x="138" y="2396" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">HANDSHAKE CONDITION</text>
+<rect x="128" y="2404" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="2425" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: awvalid = 1)  &amp;  (Subordinate -&gt; Manager: awready = 1)  &amp;  (Manager -&gt; Subordinate: wvalid = 1)</text>
+<rect x="128" y="2437" width="2280" height="30" rx="4" fill="#0d1217" stroke="#26313a"/>
+<text x="150" y="2458" fill="#cbd4db" font-size="15" class="mono">(Subordinate -&gt; Manager: wready = 1)  &amp;  (Subordinate -&gt; Manager: rvalid = 1)  &amp;  (Manager -&gt; Subordinate: rready = 1)  &amp;  (Subordinate -&gt; Manager: bvalid = 1)</text>
+<rect x="128" y="2470" width="2280" height="30" rx="4" fill="#0a0e12" stroke="#26313a"/>
+<text x="150" y="2491" fill="#cbd4db" font-size="15" class="mono">(Manager -&gt; Subordinate: bready = 1)</text>
+<text x="138" y="2529" fill="#8d98a2" font-size="13" font-weight="700" letter-spacing="1.4" class="sans">GENERATED EVENTS</text>
+<rect x="128" y="2538" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="2561" fill="#edf2f5" font-size="15" class="mono">Manager -&gt; Subordinate: atomiccompare = [val]</text>
+<rect x="128" y="2573" width="2280" height="34" rx="5" fill="#070a0d" stroke="#26313a"/>
+<text x="150" y="2596" fill="#edf2f5" font-size="15" class="mono">Manager -&gt; Subordinate: atomicswap = [val]</text>
+</svg>

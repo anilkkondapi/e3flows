@@ -1,0 +1,44 @@
+@startuml
+!pragma teoz true
+
+box "Platform" #E0FABF
+    participant PMIC
+    participant DEV_A
+end box
+
+box "Chiplet_X" #B0FFFF
+    participant uC_X
+    collections GPIO
+    participant IOAPIC
+    participant CLK_X
+    participant RM_X as "Manager"
+end box
+
+rnote over PMIC, IOAPIC #Yellow: *** Signal representation ***
+PMIC --> uC_X: rtc_rst =1
+uC_X --> RM_X: rtc_rst =0
+
+rnote over PMIC, IOAPIC #Yellow: *** Messages representation ***
+PMIC -> RM_X: I2C (OPCODE=0x1, PAYLOAD=0x21)
+
+rnote over PMIC, IOAPIC #Yellow: *** loop - used for multiple instances ***
+loop (0:1)
+    RM_X --> GPIO: side_pok = 1 (%i)
+    PMIC -> GPIO: I2C (OPCODE=0x3, PAYLOAD=0x4) (%i)  
+end loop
+
+rnote over uC_X #Yellow: *** Register representation ***
+note over uC_X #lightblue
+        GPE0_STS SCI=1, SMI=0;
+        GPE0_EN = 3;
+    end note
+
+uC_X --> IOAPIC: pwrgood_rst=1
+GPIO --> IOAPIC: SCI=1 
+IOAPIC -> RM_X: SB (MSI, IRQ_X) 
+
+PMIC -> CLK_X: I2C (0x42, PAYLOAD=0x12)
+RM_X --> uC_X: side_pwr_ok = 1
+@enduml
+
+

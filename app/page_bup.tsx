@@ -1,0 +1,102 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { MoveRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+export default function HomePage() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }} className="min-h-screen transition-all duration-500">
+      <motion.header initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }} className="text-center py-20 px-6">
+        <h1 className="text-5xl font-extrabold tracking-tight mb-4">InSync</h1>
+        <p className="text-xl text-slate-600 ">From Spec to Silicon — In Sync, On Time</p>
+        <div className="mt-8 space-x-4">
+          <Link href="/demo"><Button size="lg">Technology</Button></Link>
+          <Link href="/brochure"><Button size="lg">View Brochure</Button></Link>
+          <Link href="/contact"><Button size="lg">Contact</Button></Link>
+        </div>
+      </motion.header>
+
+      <motion.section initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="px-6 py-12 max-w-5xl mx-auto">
+        <div className="bg-red-50 border border-red-500 rounded-lg p-6 mb-10 shadow">
+          <h2 className="text-3xl font-semibold mb-4">The Problem</h2>
+          <p className="text-slate-600">
+            Traditional SoC/IP development is plagued by <strong>misalignment between specification and implementation</strong>, <strong>redundant effort across design and validation</strong>, and <strong>slow iteration cycles</strong>. <strong>Teams often work in silos with fragile handoffs</strong>, leading to <strong>late-stage bugs</strong>, <strong>missed coverage</strong>, and <strong>delays in silicon success</strong>.
+          </p>
+          <p className="text-slate-600 mt-4">
+            <strong>EFS addresses this by introducing a specification-driven, automation-ready methodology</strong> that unifies architecture, design, and validation workflows. It turns <strong>human-readable specifications into machine-executable flows</strong>, dramatically <strong>reducing debug iterations</strong> and enhancing <strong>reuse and traceability</strong> across the product lifecycle.
+          </p>
+        </div>
+
+        <div className="bg-blue-50 border border-blue-500 rounded-lg p-6 mb-10 shadow">
+          <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
+          <p className="text-slate-600 dark:text-slate-300">
+            To revolutionize semiconductor design by delivering <strong>executable, specification-driven automation that bridges architecture to silicon</strong> — enabling <strong>precision, efficiency, and first-silicon success through intelligent tools</strong> that integrate seamlessly across design, validation, and deployment ecosystems.
+          </p>
+        </div>
+
+        <div className="bg-yellow-50 border border-yellow-500 rounded-lg p-6 mb-10 shadow">
+          <h2 className="text-3xl font-semibold mb-4">Why Terraform for Chips?</h2>
+          <p className="text-slate-600 dark:text-slate-300">
+            In cloud infrastructure, Terraform made infrastructure programmable, reusable, and version-controlled. EFS brings that same power to semiconductor design.
+          </p>
+          <ul className="list-disc list-inside space-y-1">
+            <li><strong>Specs-as-code:</strong> Define flows in human-readable syntax</li>
+            <li><strong>Reusable components:</strong> Across validation and design teams</li>
+            <li><strong>Versioned and traceable:</strong> Like Git for hardware specs</li>
+            <li><strong>Automation-native:</strong> Built for integration with existing EDA tools</li>
+            <li><strong>Toolchain-agnostic:</strong> Works across Synopsys, Cadence, Mentor</li>
+          </ul>
+        </div>
+
+        <h2 className="text-3xl font-semibold mb-4">What is EFS?</h2>
+        <p className="text-slate-600 dark:text-slate-300 mb-6">
+          EFS (Executable Flow Specification) enables SMART SoC/IP development:
+        </p>
+        <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2 mb-6">
+          <li><strong>S</strong>imple text-based flows using PlantUML</li>
+          <li><strong>M</strong>odular design and reusability</li>
+          <li><strong>A</strong>nalyzable specs for early bug detection</li>
+          <li><strong>R</strong>eusable validation and RTL artifacts</li>
+          <li><strong>T</strong>estable across pre- and post-silicon stages</li>
+        </ul>
+        <div className="mt-8 space-y-6 text-slate-600 dark:text-slate-300">
+          <p>
+            The EFS syntax is modular, readable, and toolchain-agnostic. It captures high-level behaviors using a domain-specific language embedded within PlantUML and maps to design elements through structured exports. This format supports:
+          </p>
+          <ul className="list-disc list-inside space-y-1">
+            <li>Message and Signal behavior with value tracking</li>
+            <li>Register access and validation</li>
+            <li>HW-FW interactions</li>
+            <li>Flow-dependent test stimulus generation</li>
+            <li>Structured exception and timeout handling</li>
+          </ul>
+          <p>
+            The system leverages YAML/JSON intermediates to bridge flow specifications and implementation artifacts. Checkers are dynamically generated to validate sequence, timing, protocol compliance, and system-wide feature correctness.
+          </p>
+          <p>
+            Validation is made efficient through database-backed signal mapping and FSDB analysis. Post-silicon integration uses signal trackers to analyze behavior captured in waveform traces or log databases.
+          </p>
+          <p className="text-3xl font-semibold mb-4">Benefits:</p>
+          <ul className="list-disc list-inside space-y-1">
+            <li><strong>Reduces design-debug iterations</strong> through spec-driven validation</li>
+            <li><strong>Provides reusable artifacts</strong> across product variants</li>
+            <li><strong>Ensures traceability</strong> of design decisions</li>
+            <li><strong>Seamless integration</strong> with industry-standard tools (Synopsys, Cadence, Mentor)</li>
+            <li><strong>Supports agile and derivative development</strong></li>
+          </ul>
+        </div>
+      </motion.section>
+
+      <footer className="bg-slate-100 py-8 px-6 text-center text-slate-500 text-sm">
+      <p><Link href="/contact" className="text-blue-600 hover:underline">contact@InSync.com</Link></p>
+      <p>© 2025 InSync Technologies. All rights reserved.</p>
+      </footer>
+    </motion.div>
+  );
+}

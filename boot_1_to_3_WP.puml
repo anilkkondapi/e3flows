@@ -1,0 +1,93 @@
+@startuml
+!pragma teoz true
+
+box "Platform" #E0FABF
+    participant PMIC
+    participant DEV_A
+end box
+
+box "Chiplet_X" #B0FFFF
+    participant CPU
+    participant uC_X
+    collections GPIO
+    participant IOAPIC
+    participant CLK_X
+end box
+
+box "Chiplet_Y" #LightPink
+    participant CB_uC
+    participant uC_Y
+    participant PCH_uC
+    participant PMC
+    participant CLK
+end box
+
+rnote over PMIC, CB_uC :  <b> Representation of typical system flow using EFS constructs </b>
+
+autonumber "1"
+rnote over PMIC, uC_Y #Yellow: Signal Syntax -  represented with solid arrows with signal value (constant or transition)
+group signal representation
+    PMIC -> uC_Y: rtc_rst# =1
+    PMIC --> uC_Y: rtc_rst# = 1->0->1
+end
+'rnote over PMIC, uC_Y #Yellow: Signal Fanout is represented as follow
+'    PMIC --> uC_Y: rtc_rst# = 1
+'    & uC_Y --> RM_Y: rtc_rst# =1
+
+'rnote over PMIC, uC_Y #Yellow: this is better if supported by PU
+'   PMIC --> (uC_Y, RM_Y): rtc_rst#=1
+
+'rnote over PMIC, uC_Y #LightBlue: Optionally, signal value can be stored in a variable to be used later
+'    PMIC --> uC_Y: rtc_rst# = 1 (store_variable)
+'end 
+
+rnote over PMIC, CLK #Yellow: Message Syntax - represented with solid arrows with at least FABRIC NAME, OPCODE, PAYLOAD and EH (optional)
+group message representation
+    PMIC -> PCH_uC: I2C (OPCODE, PAYLOAD, EH)
+end 
+
+rnote over PMIC, CLK #Yellow: Events to multiple instances of an IP or Subcomponent is represented using loop syntax
+rnote over PMIC, CLK #DarkSalmon: GPIO IP consists of 2 instances, Signal or message to each GPIO instance is represented using loop variable
+
+loop (0:1)
+    PCH_uC --> GPIO: side_pol = 1 (%i)
+    PMIC -> GPIO: I2C (OPCODE, PAYLOAD, EH, %i)  
+end loop
+
+rnote over PMIC, CB_uC #Yellow: Sytanx for regsiter events 
+rnote over PMIC, CLK  #Yellow: GPE0_STS register is owned by PCH_uC. Register in EFS can contain value or field_name and value
+note over PCH_uC #lightblue
+    GPE0_STS SCI=1;
+    GPE0_EN = 0x3;
+end note
+
+rnote over PMIC, CLK #DarkSalmon: Out of order sequence within the flow is represented using AnyOrder 
+group (AnyOrder pwrgood_rst)
+    PCH_uC --> IOAPIC: pwrgood_rst = 1
+    loop (0:1)
+        PCH_uC --> GPIO: pwrgood_rst =1 (%i)
+    end 
+end 
+
+rnote over PMIC, CLK #DarkSalmon: Subflow Syntax - Subflow enables modular representation of IP/Subsystem flow or SW/FW module vaia hyperlink
+group Subflow Representation
+    rnote over PCH_uC, IOAPIC: subflow [[http://localhost:8000/reset_conditions.puml reset_conditions.puml]]
+end 
+
+rnote over PMIC, CLK #Yellow: Syntax for Conditions based on signal, message or register events. Example shows single signal condition
+group IF (PMIC -> PCH_uC: cb_pwr_ok = 1)
+    PCH_uC -> CB_uC: cb_pwr_ok = 1
+    rnote over PMIC, CLK #DarkSalmon: Condition body can contain signal, message register, loops, other conditions, subflows, etc.
+end IF
+
+rnote over PMIC, PCH_uC #Yellow:  Syntax Timeout representation in EFS
+PCH_uC --> CLK: pwrgood_rst =0;
+activate PCH_uC #purple
+    rnote over PCH_uC: Time out range is specifier here
+    rnote over PCH_uC: (20, 100) us
+    rnote over PCH_uC #DarkSalmon: Timeout body
+    CLK --> PCH_uC: xtal_valid =1;
+deactivate PCH_uC 
+
+@enduml
+

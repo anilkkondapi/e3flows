@@ -119,6 +119,29 @@ export default function ProductPage() {
         </div>
       </section>
 
+      {/* EFS overview video */}
+      <section className="border-b border-white/10 bg-black py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="EFS Overview"
+            title="See EFS in 78 seconds."
+            copy="See how SyncSilica turns static semiconductor specifications into executable engineering intent—from architecture through implementation and validation."
+          />
+
+          <div className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#080b0f] shadow-2xl">
+            <video
+              className="aspect-video w-full bg-black"
+              controls
+              preload="metadata"
+              playsInline
+            >
+              <source src="/syncsilica-efs-overview.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       <section className="border-b border-white/10 py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeading

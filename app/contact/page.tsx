@@ -35,7 +35,7 @@ export default function ContactPage() {
               <Mail className="h-6 w-6 text-[#76b900]" />
               <h2 className="text-2xl font-black">Request a demo</h2>
             </div>
-            <form action="https://formsubmit.co/contact@SyncSilica.com" method="POST" className="mt-8 space-y-5">
+            <form action="https://formsubmit.co/anilkondapi@gmail.com" method="POST" className="mt-8 space-y-5">
               <input type="hidden" name="_subject" value="New EFS website inquiry" />
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="text-sm font-semibold text-white/70">Name<input type="text" name="name" required className="mt-2 w-full border border-white/15 bg-black/50 px-4 py-3 text-white outline-none focus:border-[#76b900]" /></label>

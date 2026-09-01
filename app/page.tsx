@@ -348,6 +348,39 @@ WAIT done == 1`}</code>
         </div>
       </section>
 
+      {/* Company news */}
+      <section className="border-t border-white/10 bg-black py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-8 rounded-2xl border border-white/10 bg-[#111820] p-7 md:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#76b900]">
+                Company News · August 2026
+              </p>
+              <p className="mt-4 text-sm leading-6 text-white/45">
+                Industry + academic collaboration
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                SyncSilica and NGIT Announce Strategic Collaboration
+              </h2>
+              <p className="mt-5 max-w-3xl leading-7 text-white/60">
+                SyncSilica and Neil Gogte Institute of Technology are collaborating
+                to explore semiconductor architecture, design automation, verification,
+                and AI-driven system development.
+              </p>
+              <Link
+                href="/news/ngit-collaboration"
+                className="mt-7 inline-flex items-center gap-2 font-semibold text-[#76b900] transition hover:text-[#8bd000]"
+              >
+                Read announcement <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
           <div className="rounded-2xl border border-[#76b900]/25 bg-[linear-gradient(135deg,rgba(118,185,0,0.16),rgba(17,24,32,0.85))] px-7 py-14 text-center sm:px-12">

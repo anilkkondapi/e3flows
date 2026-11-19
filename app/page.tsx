@@ -94,6 +94,16 @@ export default function ProductPage() {
               and silicon validation.
             </p>
 
+            {/* Patent status */}
+            <div className="mt-6 inline-flex flex-wrap items-center gap-3 rounded-lg border border-[#76b900]/30 bg-[#76b900]/5 px-5 py-3">
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#76b900]">
+                Patent Pending
+              </span>
+              <span className="text-sm text-white/60">
+                U.S. Patent Application No. 19/834,014
+              </span>
+            </div>
+
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/contact"

@@ -35,7 +35,7 @@ export default function ContactPage() {
               <Mail className="h-6 w-6 text-[#76b900]" />
               <h2 className="text-2xl font-black">Request a demo</h2>
             </div>
-            <form action="https://formsubmit.co/anilkondapi@gmail.com" method="POST" className="mt-8 space-y-5">
+            <form action="https://formsubmit.co/contact@syncsilica.com" method="POST" className="mt-8 space-y-5">
               <input type="hidden" name="_subject" value="New EFS website inquiry" />
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="text-sm font-semibold text-white/70">Name<input type="text" name="name" required className="mt-2 w-full border border-white/15 bg-black/50 px-4 py-3 text-white outline-none focus:border-[#76b900]" /></label>
@@ -49,6 +49,14 @@ export default function ContactPage() {
               <button type="submit" className="inline-flex w-full items-center justify-center gap-2 bg-[#76b900] px-7 py-4 font-extrabold text-black transition hover:bg-[#8bd000]">Submit request <ArrowRight className="h-5 w-5" /></button>
               <p className="text-center text-xs leading-5 text-white/30">Your information will be used only to respond to this inquiry.</p>
             </form>
+            <div className="mt-7 border-t border-white/10 pt-6 text-center">
+              <p className="text-sm text-white/60">
+                Prefer email? Contact us directly at{" "}
+                <a href="mailto:contact@syncsilica.com" className="font-semibold text-[#76b900] underline underline-offset-4 transition hover:text-[#8bd000]">
+                  contact@syncsilica.com
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>

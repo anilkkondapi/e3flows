@@ -1,10 +1,37 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
+
 import { ArrowRight, CheckCircle2, Mail, MessageSquare, Workflow } from "lucide-react";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [error, setError] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (status === "sending") return;
+    const form = event.currentTarget;
+    const fields = new FormData(form);
+    setStatus("sending");
+    setError("");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(fields.entries())),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || "Request could not be sent.");
+      form.reset();
+      setStatus("success");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unable to send your request.");
+      setStatus("error");
+    }
+  }
   return (
     <main className="min-h-screen bg-[#050505] text-white">
       <SiteNav />
@@ -35,8 +62,8 @@ export default function ContactPage() {
               <Mail className="h-6 w-6 text-[#76b900]" />
               <h2 className="text-2xl font-black">Request a demo</h2>
             </div>
-            <form action="https://formsubmit.co/contact@syncsilica.com" method="POST" className="mt-8 space-y-5">
-              <input type="hidden" name="_subject" value="New EFS website inquiry" />
+            <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="text-sm font-semibold text-white/70">Name<input type="text" name="name" required className="mt-2 w-full border border-white/15 bg-black/50 px-4 py-3 text-white outline-none focus:border-[#76b900]" /></label>
                 <label className="text-sm font-semibold text-white/70">Work email<input type="email" name="email" required className="mt-2 w-full border border-white/15 bg-black/50 px-4 py-3 text-white outline-none focus:border-[#76b900]" /></label>
@@ -46,7 +73,9 @@ export default function ContactPage() {
                 <label className="text-sm font-semibold text-white/70">Role<input type="text" name="role" className="mt-2 w-full border border-white/15 bg-black/50 px-4 py-3 text-white outline-none focus:border-[#76b900]" /></label>
               </div>
               <label className="block text-sm font-semibold text-white/70">What would you like to automate?<textarea name="message" required rows={6} placeholder="Describe the specification, workflow, protocol, or validation challenge." className="mt-2 w-full resize-none border border-white/15 bg-black/50 px-4 py-3 text-white outline-none placeholder:text-white/25 focus:border-[#76b900]" /></label>
-              <button type="submit" className="inline-flex w-full items-center justify-center gap-2 bg-[#76b900] px-7 py-4 font-extrabold text-black transition hover:bg-[#8bd000]">Submit request <ArrowRight className="h-5 w-5" /></button>
+              <button type="submit" disabled={status === "sending"} className="inline-flex w-full items-center justify-center gap-2 bg-[#76b900] px-7 py-4 font-extrabold text-black transition hover:bg-[#8bd000] disabled:cursor-wait disabled:opacity-60">{status === "sending" ? "Sending…" : "Submit request"} <ArrowRight className="h-5 w-5" /></button>
+              {status === "success" && <p role="status" className="text-center text-sm text-[#76b900]">Your request was sent successfully. We will be in touch.</p>}
+              {status === "error" && <p role="alert" className="text-center text-sm text-red-400">{error} You can also email contact@syncsilica.com directly.</p>}
               <p className="text-center text-xs leading-5 text-white/30">Your information will be used only to respond to this inquiry.</p>
             </form>
             <div className="mt-7 border-t border-white/10 pt-6 text-center">
